@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Foto UGM</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100vh;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <script>
+      // 1. Inisialisasi Peta
+      var map = L.map("map").setView(
+        [-7.769388547323829, 110.37813847488121],
+        18
+      );
+
+      // 2. Definisikan Layer OpenStreetMap (OSM)
+      var osmLayer = L.tileLayer(
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        {
+          maxZoom: 20,
+          attribution:
+            '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        }
+      );
+
+      // 3. Definisikan Layer Tiles Lokal
+      var myLocalTiles = L.tileLayer("/tiles/{z}/{x}/{y}.png", {
+        maxZoom: 20,
+        attribution: "Data Saya",
+      });
+
+      // 4. Tambahkan OSM ke peta secara default (agar tidak kosong saat dibuka)
+      osmLayer.addTo(map);
+      myLocalTiles.addTo(map);
+
+      // 5. Buat Layer Control (Tombol ganti layer di pojok kanan atas)
+      var baseMaps = {
+        OpenStreetMap: osmLayer,
+      };
+
+      var overlayMaps = {
+        "Data Ortho": myLocalTiles,
+      };
+
+      // Tambahkan kontrol ke peta
+      L.control.layers(baseMaps, overlayMaps).addTo(map);
+    </script>
+  </body>
+</html>
