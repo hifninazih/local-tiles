@@ -37,7 +37,7 @@
       var osmLayer = L.tileLayer(
         "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
         {
-          maxZoom: 20,
+          maxZoom: 22,
           attribution:
             '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         }
@@ -46,7 +46,7 @@
       // 3. Definisikan Layer Tiles Lokal
       var myLocalTiles = L.tileLayer("/tiles/{z}/{x}/{y}.png", {
         maxZoom: 20,
-        attribution: "Data Saya",
+        attribution: "Data Ortho UGM 2024",
       });
 
       // 4. Tambahkan OSM ke peta secara default (agar tidak kosong saat dibuka)
