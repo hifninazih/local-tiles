@@ -37,7 +37,7 @@
       var osmLayer = L.tileLayer(
         "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
         {
-          maxZoom: 22,
+          maxZoom: 23,
           attribution:
             '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         }
@@ -45,7 +45,7 @@
 
       // 3. Definisikan Layer Tiles Lokal
       var myLocalTiles = L.tileLayer("/tiles/{z}/{x}/{y}.png", {
-        maxZoom: 20,
+        maxZoom: 23,
         attribution: "Data Ortho UGM 2024",
       });
 
